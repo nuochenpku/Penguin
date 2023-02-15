@@ -31,6 +31,24 @@ Concretely, we store our dataset in json files:
 ```
 
 ## Checkpoints
+
+### Results
 Here we report automatic and huaman evaluations results of four baselines in our paper.
 
+![](Results.png) 
+
+### End-to-end ckpt Download
+
+|Model |  Large| Base | 
+| :----- | :-------------------:| :------------------: |
+| T5 | T5-base  | T5-small | 
+| BART | BART-Large  | BART-base | 
+| Prompt-BART | Prompt-BART-Large  | -| 
+
+### Two stage ckpt Download
+|Model |  Large| Base | 
+| :----- | :-------------------:| :------------------: |
+| T5 | T5-base(Answerer, Responser)  | T5-small(Answerer, Responser) | 
+| BART | BART-Large(Answerer, Responser)  | BART-base(Answerer, Responser) | 
+| Prompt-BART | Prompt-BART-Large(Answerer, Responser)  | -| 
 
