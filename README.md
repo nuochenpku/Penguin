@@ -30,6 +30,11 @@ Concretely, we store our dataset in json files:
 }
 ```
 
+### Download
+
+| [**Train set**] |  [**Dev Set**] | [**Test Set**] | [**ALL**] |
+
+
 ## Checkpoints
 
 ### Results
