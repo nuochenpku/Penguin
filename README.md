@@ -48,7 +48,7 @@ Here we report automatic and huaman evaluations results of four baselines in our
 | :----- | :-------------------:| :------------------: |
 | T5 | T5-base  | T5-small | 
 | BART | BART-Large  | BART-base | 
-| Prompt-BART | Prompt-BART-Large  | -| 
+| Prompt-BART | [Prompt-BART-Large](https://hkustgz-my.sharepoint.com/:f:/g/personal/nchen022_connect_hkust-gz_edu_cn/EjrfcimBm01EnQUUdqkntfQB7Ox9FDaB9JvsfC9GC4N88w?e=trpxZd)  | -| 
 
 ### Two stage ckpt Download
 |Model |  Large| Base | 
