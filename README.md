@@ -8,7 +8,7 @@ This repository contains resources for accessing the official benchmarks, codes 
 
 We introduce Penguin, an end-to-end Chinese question answering dataset comprising of 200K question-passage-answer-response pairs. The goal of this dataset is to provide a challenging benchmark for end-to-end Chinese Machine Readinng Comprehension that includes the well-informed responses of each question. 
 Penguin can facilate the research to build generative QA models in Chinese and provide a relatively large-scale training corpus for Chinese communities.
-Please refer to our paper Open-Domain Question Answering Goes Conversational via Question Rewriting for details.
+Please refer to our paper Natural Response Generation for Chinese Reading Comprehension.
 
 
 ## DataSet
