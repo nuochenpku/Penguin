@@ -53,7 +53,7 @@ Here we report automatic and huaman evaluations results of four baselines in our
 ### Two stage ckpt Download
 |Model |  Large| Base | 
 | :----- | :-------------------:| :------------------: |
-| T5 | T5-base(Answerer, Responser)  | T5-small(Answerer, Responser) | 
-| BART | BART-Large(Answerer, Responser)  | BART-base(Answerer, Responser) | 
-| Prompt-BART | Prompt-BART-Large([Answerer](https://hkustgz-my.sharepoint.com/:u:/g/personal/nchen022_connect_hkust-gz_edu_cn/EaXUFwRe9fZBsQr92jiObL8BlZ04bSKqMzSFxkXjCv9x1Q?e=QtLTQi), [Responser](https://hkustgz-my.sharepoint.com/:u:/g/personal/nchen022_connect_hkust-gz_edu_cn/EVQyZwn9ERdOqVGJ7MCJohEBtU5RBr5foLap1xzj8VK71w?e=lwy1rp))  | -| 
+| T5 | Answerer, Responser  | Answerer, Responser | 
+| BART | Answerer, Responser  | Answerer, Responser | 
+| Prompt-BART | [Answerer](https://hkustgz-my.sharepoint.com/:u:/g/personal/nchen022_connect_hkust-gz_edu_cn/EaXUFwRe9fZBsQr92jiObL8BlZ04bSKqMzSFxkXjCv9x1Q?e=QtLTQi), [Responser](https://hkustgz-my.sharepoint.com/:u:/g/personal/nchen022_connect_hkust-gz_edu_cn/EVQyZwn9ERdOqVGJ7MCJohEBtU5RBr5foLap1xzj8VK71w?e=lwy1rp)  | -| 
 
