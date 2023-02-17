@@ -1,7 +1,7 @@
 # Penguin: A benchmack for Natural Response Generation in Chinese Chinese Reading Comprehension
 
-[**Tasks**](#task-description) | [**Dataset**](#dataset) | [**Checkpoints**](#Checkpoints) |
-[**Paper**](https://arxiv.org/abs/2010.04898) |
+[**Dataset**](#dataset) | [**Checkpoints**](#Checkpoints) |
+[**Paper**](https://arxiv.org/abs/2010.04898) | [**Evaluation**](#Evaluation) | 
 [**Citation**](#citation) | [**License**](#license)
 
 This repository contains resources for accessing the official benchmarks, codes and checkpoints of the paper:  ***Natural Response Generation for Chinese Reading Comprehension***.
@@ -59,3 +59,18 @@ Here we report automatic and huaman evaluations results of four baselines in our
 
 ## Evaluation
 
+### inference 
+We provide the inference code, please refer to utils/inference.py.
+```
+python3 utils/inference.py
+```
+ Of note, you should change the model_path based on your local enviroment. Then it can generate  responses from models and store in generate.json.
+ 
+### Compute metrics
+```
+python3 utils/inference.py generate.json
+```
+Running this script could lead to computing the automatic metrics of the model and store in results.csv file.
+
+
+## Citation
