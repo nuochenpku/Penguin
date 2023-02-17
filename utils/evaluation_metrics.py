@@ -10,6 +10,16 @@ from typing import Iterator, Tuple, List
 import json
 import csv
 from tqdm import tqdm 
+
+import argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--input_file', type=str,  help='generation responses path ')
+# parser.add_argument('--output_file', type=int, default=30, help='batch size')
+args = parser.parse_args()
+
+
 def ngrams(sentence: str, n: int) -> Iterator[Tuple]:
     """Yield ngrams.
 
@@ -484,56 +494,60 @@ def benchmark_file(predict, label):
     return scorer.score()
 
 
+def main():
 # read generated corpus from different models
-with open('output/bart_generate/generate.json', 'r') as f:
-    datas = f.readlines()
-# datas = datas[:100]
-one_stage = [eval(data)['one_stage']for data in datas]
-one_stage_prompt = [eval(data)['one_stage_prompt'] for data in datas]
-two_stage_responser_prompt = [eval(data)['two_stage_responser_prompt'] for data in datas]
-two_stage_reader_prompt = [eval(data)['two_stage_reader_prompt'] for data in datas]
-two_stage_reader = [eval(data)['two_stage_reader']for data in datas]
-two_stage_responser = [eval(data)['two_stage_responser']for data in datas]
-response = [eval(data)['response'] for data in datas]
-answers = [eval(data)['answer'] for data in datas]
+    with open(args.input_file, 'r') as f:
+        datas = f.readlines()
+    # datas = datas[:100]
+    one_stage = [eval(data)['one_stage']for data in datas]
+    one_stage_prompt = [eval(data)['one_stage_prompt'] for data in datas]
+    two_stage_responser_prompt = [eval(data)['two_stage_responser_prompt'] for data in datas]
+    two_stage_reader_prompt = [eval(data)['two_stage_reader_prompt'] for data in datas]
+    two_stage_reader = [eval(data)['two_stage_reader']for data in datas]
+    two_stage_responser = [eval(data)['two_stage_responser']for data in datas]
+    response = [eval(data)['response'] for data in datas]
+    answers = [eval(data)['answer'] for data in datas]
 
-print('***start testing ***')
-# store file
-f2 =  open("penguin/results/bart_generate.csv", "w")
-csv_writer = csv.writer(f2)
-csv_writer.writerow(["Model", "BLEU-1", "BLEU-2", "Distinct-1", "Distinct-2", "Rouge-l", "EM"])
+    print('***start testing ***')
+    # store file
+    f2 =  open("penguin/results/results.csv", "w")
+    csv_writer = csv.writer(f2)
+    csv_writer.writerow(["Model", "BLEU-1", "BLEU-2", "Distinct-1", "Distinct-2", "Rouge-l", "EM"])
 
-names = ['one_stage','two_stage_reader', 'two_stage_responser','one_stage_prompt', 'two_stage_reader_prompt', 'two_stage_responser_prompt']
-# names  = ['one_stage',  'two_stage_reader', 'two_stage_responser']
-# names  = ['one_stage']
-# for tokenize
-print('******start tokenzing*****')
-# all_predict =  [one_stage, two_stage_reader, two_stage_responser]
-# all_predict =  [one_stage]
-all_predict =  [one_stage, two_stage_reader, two_stage_responser, one_stage_prompt, two_stage_reader_prompt, two_stage_responser_prompt]
-bleu1_, bleu2_, dis_1, dis_2, roug_, em_ = 0, 0, 0, 0, 0, 0
-# all_predict = [one_stage,  two_stage_reader, two_stage_responser]
-for i in range(len(all_predict)):
-    sents = []
-    print('caclulating ....')
-    # for two-stage reader, only consider answer as reference. Otherwise, response is regarded as reference.
-    if i in [1,4]:
-        for pre, res in zip(all_predict[i], answers):
-            sents.append([tokenize(pre), tokenize(res)])
-    else:
-        for pre, res in zip(all_predict[i], response):
-            sents.append([tokenize(pre), tokenize(res)])
-    # calc bleu
-    bleu1, bleu2 = calc_bleu(sents)
-    # calc distinct
-    distinct1, distinct2 = calc_distinct(sents)
-    if i in [1]:
-        metrics  = benchmark_sample(all_predict[i], answers)
-    else:
-        metrics  = benchmark_sample(all_predict[i], response)
-    print('test_metrics of {}: '.format(names[i]), metrics)
-    ave = (bleu1+ bleu2 + distinct1 + distinct2 + metrics['rougeL'] + metrics["EM"])/6
-    csv_writer.writerow([names[i], bleu1, bleu2,distinct1, distinct2, metrics['rougeL'] , metrics["EM"], ave])
+    names = ['one_stage','two_stage_reader', 'two_stage_responser','one_stage_prompt', 'two_stage_reader_prompt', 'two_stage_responser_prompt']
+    # names  = ['one_stage',  'two_stage_reader', 'two_stage_responser']
+    # names  = ['one_stage']
+    # for tokenize
+    print('******start tokenzing*****')
+    # all_predict =  [one_stage, two_stage_reader, two_stage_responser]
+    # all_predict =  [one_stage]
+    all_predict =  [one_stage, two_stage_reader, two_stage_responser, one_stage_prompt, two_stage_reader_prompt, two_stage_responser_prompt]
+    bleu1_, bleu2_, dis_1, dis_2, roug_, em_ = 0, 0, 0, 0, 0, 0
+    # all_predict = [one_stage,  two_stage_reader, two_stage_responser]
+    for i in range(len(all_predict)):
+        sents = []
+        print('caclulating ....')
+        # for two-stage reader, only consider answer as reference. Otherwise, response is regarded as reference.
+        if i in [1,4]:
+            for pre, res in zip(all_predict[i], answers):
+                sents.append([tokenize(pre), tokenize(res)])
+        else:
+            for pre, res in zip(all_predict[i], response):
+                sents.append([tokenize(pre), tokenize(res)])
+        # calc bleu
+        bleu1, bleu2 = calc_bleu(sents)
+        # calc distinct
+        distinct1, distinct2 = calc_distinct(sents)
+        if i in [1]:
+            metrics  = benchmark_sample(all_predict[i], answers)
+        else:
+            metrics  = benchmark_sample(all_predict[i], response)
+        print('test_metrics of {}: '.format(names[i]), metrics)
+        ave = (bleu1+ bleu2 + distinct1 + distinct2 + metrics['rougeL'] + metrics["EM"])/6
+        csv_writer.writerow([names[i], bleu1, bleu2,distinct1, distinct2, metrics['rougeL'] , metrics["EM"], ave])
+
+if __name__ == "__main__":
+    main()
 
 
 
