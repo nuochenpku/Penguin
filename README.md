@@ -46,8 +46,8 @@ Here we report automatic and huaman evaluations results of four baselines in our
 
 |Model |  Large| Base | 
 | :----- | :-------------------:| :------------------: |
-| T5 | [T5-base](https://hkustgz-my.sharepoint.com/:f:/g/personal/nchen022_connect_hkust-gz_edu_cn/EnZ1dEn9baVFsU6488DxugsBQEhOclGL6sqJt1vOeGW8XQ?e=N3oTnM)  | [T5-small](https://hkustgz-my.sharepoint.com/:f:/g/personal/nchen022_connect_hkust-gz_edu_cn/EiV8uN1Dv2tMoUtKMJkUkIsBCCEGpiGssLPLu5071H_a8w?e=vMPmcs) | 
-| BART | BART-Large  | BART-base | 
+| T5 | [T5-base](https://hkustgz-my.sharepoint.com/:u:/g/personal/nchen022_connect_hkust-gz_edu_cn/EcPEH2XnnqJNhHL5z45kmAwB01xEk0S0x6EErKHUvu5i-g?e=WqD00C)  | [T5-small](https://hkustgz-my.sharepoint.com/:u:/g/personal/nchen022_connect_hkust-gz_edu_cn/EcPEH2XnnqJNhHL5z45kmAwB01xEk0S0x6EErKHUvu5i-g?e=WqD00C) | 
+| BART | [BART-Large](https://hkustgz-my.sharepoint.com/:u:/g/personal/nchen022_connect_hkust-gz_edu_cn/EcPEH2XnnqJNhHL5z45kmAwB01xEk0S0x6EErKHUvu5i-g?e=WqD00C)  | [BART-base](https://hkustgz-my.sharepoint.com/:u:/g/personal/nchen022_connect_hkust-gz_edu_cn/EcPEH2XnnqJNhHL5z45kmAwB01xEk0S0x6EErKHUvu5i-g?e=WqD00C) | 
 | Prompt-BART | [Prompt-BART-Large](https://hkustgz-my.sharepoint.com/:f:/g/personal/nchen022_connect_hkust-gz_edu_cn/EjrfcimBm01EnQUUdqkntfQB7Ox9FDaB9JvsfC9GC4N88w?e=trpxZd)  | -| 
 
 ### Two stage ckpt Download
