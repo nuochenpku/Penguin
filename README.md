@@ -1,14 +1,14 @@
 # Penguin: A benchmack for Natural Response Generation in Chinese Chinese Reading Comprehension
 
 [**Dataset**](#dataset) | [**Checkpoints**](#Checkpoints) |
-[**Paper**](https://arxiv.org/abs/2010.04898) | [**Evaluation**](#Evaluation) | 
+[**Paper**](https://arxiv.org/abs/2302.08817) | [**Evaluation**](#Evaluation) | 
 [**Citation**](#citation) | [**License**](#license)
 
-This repository contains resources for accessing the official benchmarks, codes and checkpoints of the paper:  ***Natural Response Generation for Chinese Reading Comprehension***.
+This repository contains resources for accessing the official benchmarks, codes and checkpoints of the paper:  [***Natural Response Generation for Chinese Reading Comprehension***](https://arxiv.org/abs/2302.08817).
 
 We introduce Penguin, an end-to-end Chinese question answering dataset comprising of 200K question-passage-answer-response pairs. The goal of this dataset is to provide a challenging benchmark for end-to-end Chinese Machine Readinng Comprehension that includes the well-informed responses of each question. 
 Penguin can facilate the research to build generative QA models in Chinese and provide a relatively large-scale training corpus for Chinese communities.
-Please refer to our paper Natural Response Generation for Chinese Reading Comprehension.
+Please refer to our paper for more details.
 
 
 ## DataSet
