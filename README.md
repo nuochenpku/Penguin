@@ -74,3 +74,11 @@ Running this script could lead to computing the automatic metrics of the model a
 
 
 ## Citation
+
+```
+@inproceedings{Chen2023NaturalRG,
+  title={Natural Response Generation for Chinese Reading Comprehension},
+  author={Nuo Chen and Hongguang Li and Yinan Bao and Baoyuan Wang and Jia Li},
+  year={2023}
+}
+```
